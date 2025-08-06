@@ -18,6 +18,10 @@ import ChartCard from './ChartCard';
 
 const formatDate = (d) => format(new Date(d), 'MMM d');
 
+// Colores pastel coherentes para todos los gráficos
+const pastelStroke = '#a5b4fc';
+const pastelFill = '#a5b4fc66';
+
 /**
  * Filtra los datos por rango de fechas (dateRange) que viene del contexto.
  */
@@ -58,8 +62,8 @@ export default function DashboardOverlay() {
           <AreaChart data={chartData}>
             <defs>
               <linearGradient id="colorRev" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="#ffffff" stopOpacity={0.8} />
-                <stop offset="95%" stopColor="#ffffff" stopOpacity={0} />
+                <stop offset="5%" stopColor={pastelStroke} stopOpacity={0.4} />
+                <stop offset="95%" stopColor={pastelStroke} stopOpacity={0} />
               </linearGradient>
             </defs>
             <XAxis
@@ -83,7 +87,7 @@ export default function DashboardOverlay() {
             <Area
               type="monotone"
               dataKey="revenue"
-              stroke="#ffffff"
+              stroke={pastelStroke}
               strokeWidth={2}
               fill="url(#colorRev)"
             />
@@ -114,7 +118,7 @@ export default function DashboardOverlay() {
               labelFormatter={(l) => formatDate(l)}
               contentStyle={{ background: 'rgba(0,0,0,0.5)', border: 'none' }}
             />
-            <Bar dataKey="sales" fill="#ffffffb3" />
+            <Bar dataKey="sales" stroke={pastelStroke} fill={pastelFill} />
           </BarChart>
         </ResponsiveContainer>
       </ChartCard>
@@ -146,7 +150,8 @@ export default function DashboardOverlay() {
             <Line
               type="monotone"
               dataKey="visitors"
-              stroke="#ffffff"
+              stroke={pastelStroke}
+              fill={pastelFill}
               strokeWidth={2}
               dot={false}
             />
