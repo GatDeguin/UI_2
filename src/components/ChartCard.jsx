@@ -1,5 +1,4 @@
 import React from 'react';
-import { Card, CardContent } from '@shadcn/ui';
 import { motion } from 'framer-motion';
 
 /**
@@ -15,13 +14,13 @@ export default function ChartCard({ title, children }) {
       whileHover={{ scale: 1.02 }}
       className="w-full h-full"
     >
-      <Card className="bg-white/20 backdrop-blur-lg rounded-xl border border-white/20 w-full h-full overflow-hidden">
-        <CardContent className="p-4 w-full h-full flex flex-col">
+      <div className="bg-white/20 backdrop-blur-lg rounded-xl border border-white/20 w-full h-full overflow-hidden">
+        <div className="p-4 w-full h-full flex flex-col">
           <h3 className="text-lg font-semibold text-white mb-3">{title}</h3>
           {/* El área de contenido ocupa todo el espacio restante */}
           <div className="flex-1">{children}</div>
-        </CardContent>
-      </Card>
+        </div>
+      </div>
     </motion.div>
   );
 }
