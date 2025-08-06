@@ -1,5 +1,6 @@
 import React from 'react';
 import { Canvas } from '@react-three/fiber';
+import { RoundedBox } from '@react-three/drei';
 import { motion } from 'framer-motion';
 import DashboardOverlay from './components/DashboardOverlay';
 import Header from './components/Header';
@@ -25,16 +26,21 @@ export default function App() {
       <Canvas camera={{ position: [0, 0, 5], fov: 50 }}>
         <ambientLight intensity={0.5} />
         <directionalLight intensity={1} position={[5, 5, 5]} />
-        {/* Simple semi-transparent plane to emulate a glass panel */}
-        <mesh rotation-x={-Math.PI / 4} position={[0, 0, 0]}>
-          <planeGeometry args={[4, 2]} />
+        {/* Rounded glass frame surrounding the dashboard */}
+        <RoundedBox
+          args={[5, 3, 0.1]}
+          radius={0.05}
+          smoothness={4}
+          rotation-x={-Math.PI / 4}
+          position={[0, 0, 0]}
+        >
           <meshPhysicalMaterial
             color="#ffffff"
-            transmission={0.9}
-            roughness={0.1}
-            metalness={0}
+            transmission={0.2}
+            roughness={0.05}
+            thickness={0.1}
           />
-        </mesh>
+        </RoundedBox>
       </Canvas>
       {/* Overlay container with micro animations */}
       <motion.div
