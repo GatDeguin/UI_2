@@ -15,9 +15,9 @@ export default function ChartCard({ title, children }) {
       animate={{ opacity: 1, y: 0 }}
       transition={transition}
       whileHover={{ y: -4, transition }}
-      className="w-full h-full"
+      className="w-full h-full drop-shadow-lg"
     >
-      <div className="bg-white/20 backdrop-blur-xl border border-white/30 shadow-md rounded-[40px] shadow-inner drop-shadow w-full h-full overflow-hidden">
+      <div className="bg-white/20 backdrop-blur-xl border border-white/30 shadow-md rounded-[40px] shadow-inner w-full h-full overflow-hidden">
         <div className="p-8 w-full h-full flex flex-col gap-4">
           <h3 className="flex items-center gap-2 text-2xl font-modern font-semibold text-white">
             <BarChart3 className="w-6 h-6 text-blue-300" />
