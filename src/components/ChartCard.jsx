@@ -7,12 +7,14 @@ import { BarChart3 } from 'lucide-react';
  * Se le pasa un título y, como children, el gráfico o dato a renderizar.
  */
 export default function ChartCard({ title, children }) {
+  const transition = { duration: 0.4, ease: 'easeOut' };
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4 }}
-      whileHover={{ scale: 1.02 }}
+      transition={transition}
+      whileHover={{ y: -4, transition }}
       className="w-full h-full"
     >
       <div className="bg-white/20 backdrop-blur-xl border border-white/30 shadow-md rounded-[40px] shadow-inner drop-shadow w-full h-full overflow-hidden">
