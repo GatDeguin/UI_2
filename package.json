@@ -2,7 +2,7 @@
   "name": "glass-dashboard",
   "version": "1.0.0",
   "private": true,
-  "homepage": ".",
+  "homepage": "https://gatdeguin.github.io/UI_2",
   "dependencies": {
     "@react-three/drei": "^9.0.0",
     "@react-three/fiber": "^8.13.1",
@@ -29,7 +29,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build --repo https://github.com/gatdeguin/UI_2.git"
   },
   "browserslist": {
     "production": [

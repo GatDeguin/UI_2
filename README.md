@@ -32,7 +32,9 @@ npm run build
 ```
 
 ### Deployment
-The project includes a GitHub Pages deployment script:
+The project includes a GitHub Pages deployment script that publishes the `build` folder to
+the `gh-pages` branch of [`gatdeguin/UI_2`](https://github.com/gatdeguin/UI_2) using an
+explicit repository URL. This allows deployment even if no `origin` remote is configured.
 ```bash
 npm run deploy
 ```
