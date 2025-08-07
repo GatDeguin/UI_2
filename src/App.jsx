@@ -1,6 +1,6 @@
 import React from 'react';
 import { Canvas } from '@react-three/fiber';
-import { RoundedBox, Environment, softShadows } from '@react-three/drei';
+import { RoundedBox, Environment, softShadows, useTexture } from '@react-three/drei';
 import { motion } from 'framer-motion';
 import DashboardOverlay from './components/DashboardOverlay';
 import Header from './components/Header';
@@ -23,6 +23,14 @@ const wobble = {
 };
 
 export default function App() {
+  const glassTextures = useTexture({
+    map:
+      'https://raw.githubusercontent.com/mrdoob/three.js/dev/examples/textures/ambientcg/Ice003_1K-JPG_Color.jpg',
+    normalMap:
+      'https://raw.githubusercontent.com/mrdoob/three.js/dev/examples/textures/ambientcg/Ice003_1K-JPG_NormalGL.jpg',
+    roughnessMap:
+      'https://raw.githubusercontent.com/mrdoob/three.js/dev/examples/textures/ambientcg/Ice003_1K-JPG_Roughness.jpg',
+  });
   return (
     <div className="h-screen w-screen relative overflow-hidden">
       {/* 3D Canvas background using react-three-fiber */}
@@ -45,10 +53,14 @@ export default function App() {
           position={[0, 0, 0]}
         >
           <meshPhysicalMaterial
+            {...glassTextures}
             color="#ffffff"
-            transmission={0.2}
-            roughness={0.05}
+            transmission={0.9}
             thickness={0.1}
+            roughness={0}
+            metalness={0}
+            clearcoat={1}
+            clearcoatRoughness={0.1}
           />
         </RoundedBox>
       </Canvas>
