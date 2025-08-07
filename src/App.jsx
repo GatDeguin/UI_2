@@ -1,10 +1,13 @@
 import React from 'react';
 import { Canvas } from '@react-three/fiber';
-import { RoundedBox, Environment } from '@react-three/drei';
+import { RoundedBox, Environment, softShadows } from '@react-three/drei';
 import { motion } from 'framer-motion';
 import DashboardOverlay from './components/DashboardOverlay';
 import Header from './components/Header';
 import FilterControls from './components/FilterControls';
+
+// Enable soft shadows across the scene
+softShadows();
 
 // Variants for a subtle wobble animation on the overlay panel.
 const wobble = {
@@ -23,9 +26,9 @@ export default function App() {
   return (
     <div className="h-screen w-screen relative overflow-hidden">
       {/* 3D Canvas background using react-three-fiber */}
-      <Canvas camera={{ position: [0, 0, 5], fov: 50 }}>
+      <Canvas shadows camera={{ position: [0, 0, 5], fov: 50 }}>
         <ambientLight intensity={0.5} />
-        <directionalLight intensity={1} position={[5, 5, 5]} />
+        <directionalLight castShadow intensity={1} position={[5, 5, 5]} />
         <Environment
           files="https://raw.githubusercontent.com/pmndrs/drei-assets/master/hdri/studio_small_09_1k.hdr"
           intensity={0.2}
@@ -33,6 +36,8 @@ export default function App() {
         />
         {/* Rounded glass frame surrounding the dashboard */}
         <RoundedBox
+          castShadow
+          receiveShadow
           args={[5, 3, 0.1]}
           radius={0.05}
           smoothness={4}
