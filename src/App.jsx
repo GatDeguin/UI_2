@@ -1,6 +1,6 @@
 import React from 'react';
 import { Canvas } from '@react-three/fiber';
-import { RoundedBox } from '@react-three/drei';
+import { RoundedBox, Environment } from '@react-three/drei';
 import { motion } from 'framer-motion';
 import DashboardOverlay from './components/DashboardOverlay';
 import Header from './components/Header';
@@ -26,6 +26,11 @@ export default function App() {
       <Canvas camera={{ position: [0, 0, 5], fov: 50 }}>
         <ambientLight intensity={0.5} />
         <directionalLight intensity={1} position={[5, 5, 5]} />
+        <Environment
+          files="https://raw.githubusercontent.com/pmndrs/drei-assets/master/hdri/studio_small_09_1k.hdr"
+          intensity={0.2}
+          rotation={[0, Math.PI / 4, 0]}
+        />
         {/* Rounded glass frame surrounding the dashboard */}
         <RoundedBox
           args={[5, 3, 0.1]}
