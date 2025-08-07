@@ -69,16 +69,18 @@ export default function DashboardOverlay() {
             <XAxis
               dataKey="date"
               tickFormatter={formatDate}
-              stroke="#ffffffb3"
+              stroke="#ffffff"
+              strokeOpacity={0.2}
               tickLine={false}
             />
             <YAxis
-              stroke="#ffffffb3"
+              stroke="#ffffff"
+              strokeOpacity={0.2}
               tickFormatter={(v) => `$${v / 1000}k`}
               tickLine={false}
               width={40}
             />
-            <CartesianGrid strokeDasharray="3 3" stroke="#ffffff1a" />
+            <CartesianGrid strokeDasharray="3 3" stroke="#ffffff" strokeOpacity={0.2} />
             <Tooltip
               labelFormatter={(l) => formatDate(l)}
               formatter={(v) => `$${v.toLocaleString()}`}
@@ -89,6 +91,8 @@ export default function DashboardOverlay() {
               dataKey="revenue"
               stroke={pastelStroke}
               strokeWidth={2}
+              strokeLinecap="round"
+              strokeLinejoin="round"
               fill="url(#colorRev)"
             />
           </AreaChart>
@@ -105,20 +109,27 @@ export default function DashboardOverlay() {
             <XAxis
               dataKey="date"
               tickFormatter={formatDate}
-              stroke="#ffffffb3"
+              stroke="#ffffff"
+              strokeOpacity={0.2}
               tickLine={false}
             />
             <YAxis
-              stroke="#ffffffb3"
+              stroke="#ffffff"
+              strokeOpacity={0.2}
               tickLine={false}
               width={40}
             />
-            <CartesianGrid strokeDasharray="3 3" stroke="#ffffff1a" />
+            <CartesianGrid strokeDasharray="3 3" stroke="#ffffff" strokeOpacity={0.2} />
             <Tooltip
               labelFormatter={(l) => formatDate(l)}
               contentStyle={{ background: 'rgba(0,0,0,0.5)', border: 'none' }}
             />
-            <Bar dataKey="sales" stroke={pastelStroke} fill={pastelFill} />
+            <Bar
+              dataKey="sales"
+              stroke={pastelStroke}
+              fill={pastelFill}
+              radius={[8, 8, 0, 0]}
+            />
           </BarChart>
         </ResponsiveContainer>
       </ChartCard>
@@ -133,15 +144,17 @@ export default function DashboardOverlay() {
             <XAxis
               dataKey="date"
               tickFormatter={formatDate}
-              stroke="#ffffffb3"
+              stroke="#ffffff"
+              strokeOpacity={0.2}
               tickLine={false}
             />
             <YAxis
-              stroke="#ffffffb3"
+              stroke="#ffffff"
+              strokeOpacity={0.2}
               tickLine={false}
               width={40}
             />
-            <CartesianGrid strokeDasharray="3 3" stroke="#ffffff1a" />
+            <CartesianGrid strokeDasharray="3 3" stroke="#ffffff" strokeOpacity={0.2} />
             <Tooltip
               labelFormatter={(l) => formatDate(l)}
               formatter={(v) => v.toLocaleString()}
@@ -153,6 +166,8 @@ export default function DashboardOverlay() {
               stroke={pastelStroke}
               fill={pastelFill}
               strokeWidth={2}
+              strokeLinecap="round"
+              strokeLinejoin="round"
               dot={false}
             />
           </LineChart>
