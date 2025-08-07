@@ -19,8 +19,8 @@ import ChartCard from './ChartCard';
 const formatDate = (d) => format(new Date(d), 'MMM d');
 
 // Colores pastel coherentes para todos los gráficos
-const pastelStroke = '#a5b4fc';
-const pastelFill = '#a5b4fc66';
+const pastelStroke = '#c084fc';
+const pastelFill = '#c084fc66';
 
 /**
  * Filtra los datos por rango de fechas (dateRange) que viene del contexto.

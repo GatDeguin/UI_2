@@ -10,7 +10,7 @@ const AnimatedCalendar = ({ className, children }) => (
     className={className}
     initial={{ opacity: 0, scale: 0.95 }}
     animate={{ opacity: 1, scale: 1 }}
-    transition={{ duration: 0.2 }}
+    transition={{ duration: 0.15 }}
   >
     {children}
   </motion.div>
@@ -23,9 +23,9 @@ const DateInput = forwardRef(({ value, onClick, label }, ref) => (
     ref={ref}
     className="flex items-center space-x-2 focus:outline-none"
   >
-    <Calendar className="w-4 h-4 text-white" />
+    <Calendar className="w-5 h-5 text-purple-200" />
     <span className="text-white">{value || label}</span>
-    <ChevronDown className="w-4 h-4 text-white" />
+    <ChevronDown className="w-5 h-5 text-purple-200" />
   </button>
 ));
 
