@@ -64,7 +64,9 @@ export default function App() {
         {/* Date range controls */}
         <FilterControls />
         {/* Dashboard grid; pointer-events-auto allows interaction */}
-        <div className="grid grid-cols-3 grid-rows-2 gap-4 mt-4 h-full pointer-events-auto">
+        <div
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 grid-rows-2 gap-4 md:gap-6 lg:gap-8 mt-4 h-full pointer-events-auto"
+        >
           <DashboardOverlay />
         </div>
       </motion.div>
