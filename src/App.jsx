@@ -1,10 +1,11 @@
 import React from 'react';
 import { Canvas } from '@react-three/fiber';
-import { RoundedBox, Environment, useTexture } from '@react-three/drei';
+import { Environment } from '@react-three/drei';
 import { motion } from 'framer-motion';
 import DashboardOverlay from './components/DashboardOverlay';
 import Header from './components/Header';
 import FilterControls from './components/FilterControls';
+import GlassFrame from './components/GlassFrame';
 
 // Soft shadows se deshabilitan por compatibilidad
 
@@ -22,14 +23,6 @@ const wobble = {
 };
 
 export default function App() {
-  const glassTextures = useTexture({
-    map:
-      'https://raw.githubusercontent.com/mrdoob/three.js/dev/examples/textures/ambientcg/Ice003_1K-JPG_Color.jpg',
-    normalMap:
-      'https://raw.githubusercontent.com/mrdoob/three.js/dev/examples/textures/ambientcg/Ice003_1K-JPG_NormalGL.jpg',
-    roughnessMap:
-      'https://raw.githubusercontent.com/mrdoob/three.js/dev/examples/textures/ambientcg/Ice003_1K-JPG_Roughness.jpg',
-  });
   return (
     <div className="h-screen w-screen relative overflow-hidden">
       {/* 3D Canvas background using react-three-fiber */}
@@ -37,31 +30,12 @@ export default function App() {
         <ambientLight intensity={0.5} />
         <directionalLight castShadow intensity={1} position={[5, 5, 5]} />
         <Environment
-          files="https://raw.githubusercontent.com/pmndrs/drei-assets/master/hdri/studio_small_09_1k.hdr"
+          files="studio_small_09_1k.hdr"
           intensity={0.2}
           rotation={[0, Math.PI / 4, 0]}
         />
         {/* Rounded glass frame surrounding the dashboard */}
-        <RoundedBox
-          castShadow
-          receiveShadow
-          args={[5, 3, 0.1]}
-          radius={0.05}
-          smoothness={4}
-          rotation-x={-Math.PI / 4}
-          position={[0, 0, 0]}
-        >
-          <meshPhysicalMaterial
-            {...glassTextures}
-            color="#ffffff"
-            transmission={0.9}
-            thickness={0.1}
-            roughness={0}
-            metalness={0}
-            clearcoat={1}
-            clearcoatRoughness={0.1}
-          />
-        </RoundedBox>
+        <GlassFrame />
       </Canvas>
       {/* Overlay container with micro animations */}
       <motion.div
