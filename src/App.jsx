@@ -1,22 +1,21 @@
 import React from 'react';
 import { Canvas } from '@react-three/fiber';
-import { RoundedBox, Environment, softShadows, useTexture } from '@react-three/drei';
+import { RoundedBox, Environment, useTexture } from '@react-three/drei';
 import { motion } from 'framer-motion';
 import DashboardOverlay from './components/DashboardOverlay';
 import Header from './components/Header';
 import FilterControls from './components/FilterControls';
 
-// Enable soft shadows across the scene
-softShadows();
+// Soft shadows se deshabilitan por compatibilidad
 
 // Variants for a subtle wobble animation on the overlay panel.
 const wobble = {
   initial: { rotateZ: 0 },
   animate: {
-    rotateZ: [0, 0.5, -0.5, 0],
+    rotateZ: [0, 0.3, -0.3, 0],
   },
   transition: {
-    duration: 8,
+    duration: 6,
     repeat: Infinity,
     ease: 'easeInOut',
   },

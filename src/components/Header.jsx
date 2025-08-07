@@ -9,12 +9,12 @@ export default function Header() {
   const { filter, setFilter } = useContext(DataContext);
   return (
     <div className="flex items-center justify-between mb-4">
-      <h1 className="flex items-center gap-2 text-4xl font-modern font-bold text-white">
-        <LayoutDashboard className="w-6 h-6 text-pink-300" />
+      <h1 className="flex items-center gap-2 text-3xl font-modern font-bold text-white">
+        <LayoutDashboard className="w-6 h-6 text-purple-300" />
         Dashboard
       </h1>
       <div className="flex items-center gap-2">
-        <Filter className="w-6 h-6 text-pink-300" />
+        <Filter className="w-6 h-6 text-purple-300" />
         <select
           value={filter}
           onChange={(e) => setFilter(e.target.value)}
